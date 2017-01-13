@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F3EF3619-F312-4B17-B5BE-5764A8010D38}"
 	ProjectSection(SolutionItems) = preProject
@@ -27,6 +27,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.KInspector.WebApplication", "KInspector.WebApplication\Kentico.KInspector.WebApplication.csproj", "{EB7ACB09-1263-4D7D-A957-1D95D08DAB92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "ConsoleTest\ConsoleTest.csproj", "{126FB04F-7DE2-4F5F-8BF5-01F6CF8FC4A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.KInspector.Desktop", "KInspector.Desktop\Kentico.KInspector.Desktop.csproj", "{81707578-DC47-42E9-A14B-F765390D6D9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +55,18 @@ Global
 		{94C43526-335E-43F1-A5D6-020FB0A98E85}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94C43526-335E-43F1-A5D6-020FB0A98E85}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94C43526-335E-43F1-A5D6-020FB0A98E85}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB7ACB09-1263-4D7D-A957-1D95D08DAB92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB7ACB09-1263-4D7D-A957-1D95D08DAB92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB7ACB09-1263-4D7D-A957-1D95D08DAB92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB7ACB09-1263-4D7D-A957-1D95D08DAB92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{126FB04F-7DE2-4F5F-8BF5-01F6CF8FC4A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{126FB04F-7DE2-4F5F-8BF5-01F6CF8FC4A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{126FB04F-7DE2-4F5F-8BF5-01F6CF8FC4A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{126FB04F-7DE2-4F5F-8BF5-01F6CF8FC4A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81707578-DC47-42E9-A14B-F765390D6D9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81707578-DC47-42E9-A14B-F765390D6D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81707578-DC47-42E9-A14B-F765390D6D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81707578-DC47-42E9-A14B-F765390D6D9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
