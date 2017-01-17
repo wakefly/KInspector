@@ -23,6 +23,7 @@ namespace Kentico.KInspector.Desktop
         public MainWindow()
         {
             InitializeComponent();
+            Browser.Address = App.ServerUrl;
         }
     }
 }
