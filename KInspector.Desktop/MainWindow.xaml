@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kentico.KInspector.Desktop"
         mc:Ignorable="d"
-        Title="{Binding Path=Title, ElementName=Browser}"
+        Title="KInspector"
         WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
