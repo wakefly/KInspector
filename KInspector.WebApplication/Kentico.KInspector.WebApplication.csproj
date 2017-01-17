@@ -147,18 +147,18 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FrontEnd\CSS\foundation.min.css" />
-    <Content Include="FrontEnd\CSS\loader.css" />
-    <Content Include="FrontEnd\CSS\style.css" />
-    <Content Include="FrontEnd\index.html" />
-    <Content Include="FrontEnd\Scripts\Directives.js" />
-    <Content Include="FrontEnd\Scripts\Module.js" />
-    <Content Include="FrontEnd\Scripts\Services.js" />
-    <Content Include="FrontEnd\Scripts\Vendor\angular-route.min.js" />
-    <Content Include="FrontEnd\Scripts\Vendor\angular.js" />
-    <Content Include="FrontEnd\Scripts\Vendor\jquery.min.js" />
-    <Content Include="FrontEnd\Scripts\Vendor\jquery.stickytableheaders.min.js" />
-    <Content Include="FrontEnd\Scripts\Vendor\ui.js" />
+    <Content Include="www\CSS\foundation.min.css" />
+    <Content Include="www\CSS\loader.css" />
+    <Content Include="www\CSS\style.css" />
+    <Content Include="www\index.html" />
+    <Content Include="www\Scripts\Directives.js" />
+    <Content Include="www\Scripts\Module.js" />
+    <Content Include="www\Scripts\Services.js" />
+    <Content Include="www\Scripts\Vendor\angular-route.min.js" />
+    <Content Include="www\Scripts\Vendor\angular.js" />
+    <Content Include="www\Scripts\Vendor\jquery.min.js" />
+    <Content Include="www\Scripts\Vendor\jquery.stickytableheaders.min.js" />
+    <Content Include="www\Scripts\Vendor\ui.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

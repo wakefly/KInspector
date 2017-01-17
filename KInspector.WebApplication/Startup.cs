@@ -25,7 +25,7 @@ namespace Kentico.KInspector.WebApplication
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            var physicalFileSystem = new PhysicalFileSystem(@".\FrontEnd"); //. = root, Web = your physical directory that contains all other static content, see prev step
+            var physicalFileSystem = new PhysicalFileSystem(@".\www"); //. = root, Web = your physical directory that contains all other static content, see prev step
             var options = new FileServerOptions
             {
                 EnableDefaultFiles = true,
