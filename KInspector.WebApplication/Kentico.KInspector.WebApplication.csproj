@@ -128,9 +128,6 @@
     <Content Include="www\Scripts\Vendor\jquery.stickytableheaders.min.js" />
     <Content Include="www\Scripts\Vendor\ui.js" />
     <Content Include="packages.config" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
