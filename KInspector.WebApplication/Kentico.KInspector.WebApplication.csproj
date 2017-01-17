@@ -141,6 +141,18 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="WebAPI\Controllers\ExportController.cs" />
+    <Compile Include="WebAPI\Controllers\ModulesController.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KInspector.Core\Kentico.KInspector.Core.csproj">
+      <Project>{83c55b9e-f597-4941-a41a-932154e256d4}</Project>
+      <Name>Kentico.KInspector.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KInspector.Modules\Kentico.KInspector.Modules.csproj">
+      <Project>{1d75b5ff-71b8-403f-8aed-84b1f32d6617}</Project>
+      <Name>Kentico.KInspector.Modules</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
