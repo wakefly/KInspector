@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 
 namespace Kentico.KInspector.Modules
 {
@@ -29,7 +30,7 @@ namespace Kentico.KInspector.Modules
         /// Path to directory where all the files the probe needs reside (with trailing slash).
         /// The content of the directory is copied to the Kentico instance upon install.
         /// </summary>
-        private const string PROBE_DATA_FOLDER_PATH = ".\\ProbeData\\";
+        private static string PROBE_DATA_FOLDER_PATH = Path.GetDirectoryName(Assembly.GetExecutingAssembly().CodeBase.Substring(8)) + "\\ProbeData\\";
 
 
         /// <summary>
