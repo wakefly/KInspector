@@ -119,7 +119,7 @@
             return {
                 responseError: function (rejection) {
                     var errorMessage = rejection.status === 0
-                        ? "Web API server is not running, run the executable KInspector.Web.exe first."
+                        ? "Web API server is not running."
                         : rejection.data || "Server error.";
                     errorService.triggerError(errorMessage);
                     return $q.reject(rejection);
