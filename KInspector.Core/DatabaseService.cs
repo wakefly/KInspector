@@ -165,7 +165,7 @@ namespace Kentico.KInspector.Core
         /// <param name="filePath">Path of the file in './Scripts/' folder</param>
         public DataSet ExecuteAndGetDataSetFromFile(string filePath)
         {
-            using (var sr = new StreamReader("./Scripts/" + filePath))
+            using (var sr = new StreamReader(executingPath + "\\Scripts\\" + filePath))
             {
                 var fileContents = sr.ReadToEnd();
                 return ExecuteAndGetDataSet(fileContents);
@@ -214,7 +214,7 @@ namespace Kentico.KInspector.Core
         /// </remarks>
         public List<string> ExecuteAndGetPrintsFromFile(string filePath)
         {
-            using (var sr = new StreamReader("./Scripts/" + filePath))
+            using (var sr = new StreamReader(executingPath + "\\Scripts\\" + filePath))
             {
                 var fileContents = sr.ReadToEnd();
                 return ExecuteAndGetPrints(fileContents);
