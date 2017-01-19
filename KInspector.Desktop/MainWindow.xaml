@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:Kentico.KInspector.Desktop"
         mc:Ignorable="d"
         Title="KInspector"
+        Icon="/Resources/Kentico.ico"
         WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
