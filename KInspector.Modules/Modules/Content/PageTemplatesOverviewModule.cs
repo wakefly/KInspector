@@ -79,7 +79,7 @@ namespace Kentico.KInspector.Modules
             var dbService = instanceInfo.DBService;
             var webPartsWithColumns = dbService.ExecuteAndGetTableFromFile("PageTemplatesOverviewModule-WebPartsWithColumns.sql");
 
-            var templates = dbService.ExecuteAndGetTableFromFile("PageTemplatesOverviewModule-Documents.sql");
+            var templates = dbService.ExecuteAndGetTableFromFile("PageTemplatesOverviewModule-Templates.sql");
 
             DataSet results = new DataSet();
             bool duplicateTemplateCodeName = false;
