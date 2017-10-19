@@ -135,7 +135,7 @@
     <Compile Include="Modules\General\InstanceInfoModule.cs" />
     <Compile Include="Modules\General\OldWebFarmTasks.cs" />
     <Compile Include="Modules\General\PagesAnalyzerModule.cs" />
-    <Compile Include="Modules\Content\SiteTemplatesModule.cs" />
+    <Compile Include="Modules\Content\PageTemplatesOverviewModule.cs" />
     <Compile Include="Modules\General\ScreenshotterModule.cs" />
     <Compile Include="Modules\General\SiteMapModule.cs" />
     <Compile Include="Modules\General\CMSFileModule.cs" />
@@ -327,13 +327,13 @@
     <Content Include="Scripts\PagesAnalyzerModule.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\SiteTemplatesModule-Templates.sql">
+    <Content Include="Scripts\PageTemplatesOverviewModule-Templates.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\SiteTemplatesModule-WebPartsWithColumns.sql">
+    <Content Include="Scripts\PageTemplatesOverviewModule-WebPartsWithColumns.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\SiteTemplatesModule-Documents.sql">
+    <Content Include="Scripts\PageTemplatesOverviewModule-Documents.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\AttachmentsBySizeModule.sql">

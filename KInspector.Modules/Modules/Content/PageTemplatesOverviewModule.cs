@@ -8,7 +8,7 @@ using Kentico.KInspector.Core;
 
 namespace Kentico.KInspector.Modules
 {
-    public class SiteTemplatesModule : IModule
+    public class PageTemplatesOverviewModule : IModule
     {
         #region "Inner classes"
 
@@ -69,7 +69,7 @@ namespace Kentico.KInspector.Modules
                     new Version("9.0"),
                     new Version("10.0")
                 },
-                Comment = @"Shows the basic web part configuration for all page templates and lists all the documents that use that template.",
+                Comment = @"Shows the basic web part configuration for all page templates and their usage.",
             };
         }
 
@@ -77,9 +77,9 @@ namespace Kentico.KInspector.Modules
         public ModuleResults GetResults(IInstanceInfo instanceInfo)
         {
             var dbService = instanceInfo.DBService;
-            var webPartsWithColumns = dbService.ExecuteAndGetTableFromFile("SiteTemplatesModule-WebPartsWithColumns.sql");
+            var webPartsWithColumns = dbService.ExecuteAndGetTableFromFile("PageTemplatesOverviewModule-WebPartsWithColumns.sql");
 
-            var templates = dbService.ExecuteAndGetTableFromFile("SiteTemplatesModule-Templates.sql");
+            var templates = dbService.ExecuteAndGetTableFromFile("PageTemplatesOverviewModule-Documents.sql");
 
             DataSet results = new DataSet();
             bool duplicateTemplateCodeName = false;
@@ -155,7 +155,7 @@ namespace Kentico.KInspector.Modules
                 
                 results.Tables.Add(result);
 
-                var documents = dbService.ExecuteAndGetTableFromFile("SiteTemplatesModule-Documents.sql", 
+                var documents = dbService.ExecuteAndGetTableFromFile("PageTemplatesOverviewModule-Documents.sql", 
                     new SqlParameter("PageTemplateID", template["PageTemplateID"]));
                 documents.TableName = $"{tableHeader} - Documents";
                 results.Tables.Add(documents.Copy());
