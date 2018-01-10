@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.Web.Administration;
+using System;
+using System.Data.SqlClient;
 using System.IO;
+using System.Linq;
 
 namespace Kentico.KInspector.Core
 {
@@ -47,6 +50,44 @@ namespace Kentico.KInspector.Core
             {
                 throw new ArgumentNullException("version");
             }
+
+			if(config.IISSiteName != null)
+			{
+				ServerManager server = new ServerManager();
+				SiteCollection sites = server.Sites;
+				var site = sites.FirstOrDefault(item => item.Name == config.IISSiteName);
+
+				if(site != null && site.State == ObjectState.Started)
+				{
+					//Get the Binding objects for this Site
+					BindingCollection bindings = site.Bindings;
+					var firstBinding = bindings.FirstOrDefault();
+					if(firstBinding != null)
+					{
+						config.Url = firstBinding.Host;
+					}
+
+					//Get the list of all Applications for this Site
+					var firstApp = site.Applications.FirstOrDefault();
+					if(firstApp != null)
+					{
+						var firstVirApp = firstApp.VirtualDirectories.FirstOrDefault();
+						config.Path = firstVirApp.PhysicalPath;
+					}
+
+					Configuration webConfig = site.GetWebConfiguration();
+					ConfigurationSection connectionStringsSection = webConfig.GetSection("connectionStrings");
+					var collection = connectionStringsSection.GetCollection();
+					var connectionString = collection.FirstOrDefault(item => item.Attributes["name"] != null && item.Attributes["name"].Value.ToString() == "CMSConnectionString");
+					var sqlConn = new SqlConnectionStringBuilder(connectionString.Attributes["connectionString"].Value.ToString());
+					config.IntegratedSecurity = sqlConn.IntegratedSecurity;
+					config.Server = sqlConn.DataSource;
+					config.Database = sqlConn.InitialCatalog;
+					config.User = sqlConn.UserID;
+					config.Password = sqlConn.Password;
+				}
+			}
+
 
             Config = config;
 

@@ -5,6 +5,7 @@
     /// </summary>
     public class InstanceConfig
     {
+		public string IISSiteName { get; set; }
         public string Url { get; set; }
         public string Path { get; set; }
         public string Database { get; set; }

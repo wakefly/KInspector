@@ -4,6 +4,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Kentico.KInspector.Core;
+using Microsoft.Web.Administration;
+using System.Collections.Generic;
 
 namespace Kentico.KInspector.WebApplication.WebApi.Controllers
 {
@@ -127,5 +129,35 @@ namespace Kentico.KInspector.WebApplication.WebApi.Controllers
 				return Request.CreateResponse(HttpStatusCode.BadRequest, e.Message);
 			}
 		}
-    }
+
+		/// <summary>
+		/// Get api/modules/GetIISSites
+		/// </summary>
+		[ActionName("GetIISSites")]
+		public HttpResponseMessage GetIISSites([FromUri]InstanceConfig config)
+		{
+			try
+			{
+				var instance = new InstanceInfo(config);
+				ServerManager server = new ServerManager();
+				var sites = server.Sites.Where(site => site.State == ObjectState.Started);
+				var siteNames = new List<Tuple<string, string>>();
+				foreach(var site in sites)
+				{
+					//Get the Binding objects for this Site
+					BindingCollection bindings = site.Bindings;
+					var firstBinding = bindings.FirstOrDefault();
+					if (firstBinding != null)
+					{
+						siteNames.Add(new Tuple<string, string>(site.Name, firstBinding.Host));
+					}
+				}
+				return Request.CreateResponse(HttpStatusCode.OK, siteNames.OrderBy(item => item.Item1));
+			}
+			catch (Exception e)
+			{
+				return Request.CreateResponse(HttpStatusCode.BadRequest, e.Message);
+			}
+		}
+	}
 }

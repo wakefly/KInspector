@@ -16,7 +16,7 @@
 		        },
 		        disconnect: function () {
 		            $rootScope.$emit('knlDisconnected');
-		            $location.path('/target-setup');
+		            $location.path('/iis-setup');
 		        }
 		    }
 		})

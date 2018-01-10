@@ -6,14 +6,26 @@
     angular.module(kinspectorAppName, ['ngRoute', 'knlServices', 'knlDirectives'])
         /**
          * The first visible page. User sets Kentico settings and then is able to redirect to the main menu.
-         * Its route is set in the module config - is bound to '/target-setup' route
+         * Its route is set in the module config - is bound to '/iis-setup' route
          */
         .controller('knlTargetSetupController', function ($scope, $location, $http, $rootScope, knlTargetConfigService) {
             $scope.model = $scope.model || {};
             $scope.model.config = knlTargetConfigService.getConfig();
 
+			$scope.model.showLoader = true;
+			$http.get("/api/modules/GetIISSites/", { params: $scope.model.config })
+				.success(function (data) {
+					$scope.sitesList = data;
+					$scope.model.showLoader = false;
+				})
+				.error(function () {
+					$scope.model.showLoader = false;
+				});
+
+
             // This gets called when user pushes a button to connect
             $scope.connect = function () {
+				$scope.model.config.IISSiteName = "";
 
                 // Save the config no matter if it's valid or not
                 knlTargetConfigService.setConfig($scope.model.config);
@@ -35,7 +47,39 @@
                     .error(function () {
                         $scope.model.showLoader = false;
                     });
-            }
+			}
+
+			$scope.iisconnect = function () {
+				
+				$scope.model.config.IntegratedSecurity = true;
+				$scope.model.config.Server = "";
+				$scope.model.config.Database = "";
+				$scope.model.config.User = "";
+				$scope.model.config.Password = "";
+				$scope.model.config.Path = "";
+				$scope.model.config.Url = "";
+
+				// Save the config no matter if it's valid or not
+				knlTargetConfigService.setConfig($scope.model.config);
+
+				$scope.model.showLoader = true;
+
+				$http.get("/api/modules/GetKenticoVersion/", { params: $scope.model.config })
+					.success(function (data) {
+
+						// Hack - clear the cached module results
+						localStorage.setItem('knlModuleResults', null);
+						localStorage.setItem('knlSetupModuleMetadata', null);
+						localStorage.setItem('knlModuleMetadata', null);
+						localStorage.setItem('knlModuleMetadataSecurity', null);
+
+						$scope.model.showLoader = false;
+						$location.path('/main-menu');
+					})
+					.error(function () {
+						$scope.model.showLoader = false;
+					});
+			}
         })
         /**
          * Main menu page - allows the user to choose whether to perform instance setup, or analyse it.
@@ -130,7 +174,11 @@
          * Web.config of the application
          */
         .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
-            $routeProvider
+			$routeProvider
+				.when('/iis-setup', {
+					templateUrl: 'partials/iis-setup.html',
+					controller: 'knlTargetSetupController'
+				})
                 .when('/target-setup', {
                     templateUrl: 'partials/target-setup.html',
                     controller: 'knlTargetSetupController'
@@ -148,7 +196,7 @@
                     controller: 'knlResultsController'
                 })
                 .otherwise({
-                    redirectTo: '/target-setup'
+                    redirectTo: '/iis-setup'
                 });
 
             $httpProvider.interceptors.push('knlErrorMessageInterceptor');
