@@ -12,20 +12,20 @@
             $scope.model = $scope.model || {};
             $scope.model.config = knlTargetConfigService.getConfig();
 
-			$scope.model.showLoader = true;
-			$http.get("/api/modules/GetIISSites/", { params: $scope.model.config })
-				.success(function (data) {
-					$scope.sitesList = data;
-					$scope.model.showLoader = false;
-				})
-				.error(function () {
-					$scope.model.showLoader = false;
-				});
+            $scope.model.showLoader = true;
+            $http.get("/api/modules/GetIISSites/", { params: $scope.model.config })
+    				.success(function (data) {
+    					$scope.sitesList = data;
+    					$scope.model.showLoader = false;
+    				})
+  					.error(function () {
+  						$scope.model.showLoader = false;
+  					});
 
 
             // This gets called when user pushes a button to connect
             $scope.connect = function () {
-				$scope.model.config.IISSiteName = "";
+                $scope.model.config.IISSiteName = "";
 
                 // Save the config no matter if it's valid or not
                 knlTargetConfigService.setConfig($scope.model.config);
