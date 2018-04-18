@@ -30,7 +30,7 @@ namespace Kentico.KInspector.Modules
 3) Form Attachments files not associated with any Form record in Kentico
 
 Note: Page attachments and metafiles can be administered in System->Files: https://docs.kentico.com/display/K9/Administering+files+globally",
-				Category = "Content"
+				Category = "Consistency issues"
 			};
 		}
 
